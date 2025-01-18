@@ -166,7 +166,7 @@ export class EcsCdkStack extends cdk.Stack {
           },
           build: {
             commands: [
-              `docker build -t $ecr_repo_uri:$tag .`,
+              `docker build -t $ecr_repo_uri:$tag ./streamlit-docker-app`,
               'docker push $ecr_repo_uri:$tag'
             ]
           },
