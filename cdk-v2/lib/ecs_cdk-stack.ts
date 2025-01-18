@@ -155,6 +155,7 @@ export class EcsCdkStack extends cdk.Stack {
       badge: true,
       buildSpec: codebuild.BuildSpec.fromObject({
         version: "0.2",
+
         phases: {
           pre_build: {
             commands: [
