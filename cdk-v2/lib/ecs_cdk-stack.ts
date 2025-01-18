@@ -160,7 +160,6 @@ export class EcsCdkStack extends cdk.Stack {
             commands: [
               'env',
               'export tag=latest',
-              'pwd'
             ]
           },
           build: {
