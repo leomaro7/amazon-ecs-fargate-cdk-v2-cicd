@@ -159,12 +159,13 @@ export class EcsCdkStack extends cdk.Stack {
           pre_build: {
             commands: [
               'env',
-              'export tag=latest'
+              'export tag=latest',
+              'pwd'
             ]
           },
           build: {
             commands: [
-              `docker build -t $ecr_repo_uri:$tag streamlit-docker-app/.`,
+              `docker build -t $ecr_repo_uri:$tag .`,
               '$(aws ecr get-login --no-include-email)',
               'docker push $ecr_repo_uri:$tag'
             ]
