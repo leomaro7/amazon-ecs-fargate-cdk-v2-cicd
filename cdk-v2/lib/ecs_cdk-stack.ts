@@ -164,8 +164,7 @@ export class EcsCdkStack extends cdk.Stack {
           },
           build: {
             commands: [
-              'cd streamlit-docker-app/', // Streamlit用ディレクトリ
-              `docker build -t $ecr_repo_uri:$tag .`,
+              `docker build -t $ecr_repo_uri:$tag streamlit-docker-app/.`,
               '$(aws ecr get-login --no-include-email)',
               'docker push $ecr_repo_uri:$tag'
             ]
