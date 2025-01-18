@@ -5,7 +5,7 @@ WORKDIR /app
 COPY streamlit-docker-app/requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY streamlit-docker-app/app .
+COPY streamlit-docker-app/app/app.py .
 
 CMD ["streamlit", "run", "app.py"]
 
