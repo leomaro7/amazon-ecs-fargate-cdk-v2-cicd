@@ -160,12 +160,12 @@ export class EcsCdkStack extends cdk.Stack {
             commands: [
               'env',
               'export tag=latest',
+              'aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ecr_repo_uri'
             ]
           },
           build: {
             commands: [
               `docker build -t $ecr_repo_uri:$tag .`,
-              '$(aws ecr get-login --no-include-email)',
               'docker push $ecr_repo_uri:$tag'
             ]
           },
